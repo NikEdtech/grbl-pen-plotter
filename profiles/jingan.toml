@@ -3,7 +3,7 @@
 
 name = "jingan"
 description = "JinGan 4-motor BtWriter-class GRBL pen plotter"
-default_port_hint = "usbserial"
+default_port_hint = "CH340"
 notes = """
 Park the carriage at the sheet corner with the pen at maximum height, then
 run `penplot zero` (G92). Pen-down is Z+ from that raised zero.

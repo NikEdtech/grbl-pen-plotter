@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "grbl-pen-plotter"
-version = "0.1.0"
+version = "0.1.1"
 description = "CLI sender and toolpath tools for GRBL pen plotters (JinGan / BtWriter class)"
 readme = "README.md"
 license = { text = "MIT" }
