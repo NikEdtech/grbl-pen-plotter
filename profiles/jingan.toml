@@ -1,0 +1,47 @@
+# JinGan / BtWriter (GRBL 1.3a) — 4-motor A4 handwriting plotter
+# Calibrated on a live unit (CH340 @ 115200). Soft limits are sender-side only.
+
+name = "jingan"
+description = "JinGan 4-motor BtWriter-class GRBL pen plotter"
+default_port_hint = "usbserial"
+notes = """
+Park the carriage at the sheet corner with the pen at maximum height, then
+run `penplot zero` (G92). Pen-down is Z+ from that raised zero.
+While plotting use $1=255 so steppers hold; set $1=25 afterward to cool.
+Do not enable $20 soft limits without homing ($22). Keep $32=0 (not laser).
+"""
+
+[pen]
+mode = "z_stepper"
+z_up = 0.0
+z_down = 15.0
+z_feed = 800.0
+spindle_on = "M3 S1000"
+spindle_off = "M5"
+hold_spindle_during_stroke = true
+
+[feeds]
+rapid = 2500.0
+draw = 800.0
+jog = 1000.0
+
+[limits]
+# Work coordinates after G92 at sheet corner (raised). Machine-space clamp
+# below matches a calibrated JinGan bed; override if your origin differs.
+x_min = 0.0
+x_max = 180.0
+y_min = 0.0
+y_max = 280.0
+margin = 5.0
+machine_x_min = 9.0
+machine_x_max = 180.0
+machine_y_min = 98.0
+machine_y_max = 404.0
+
+[grbl]
+baud = 115200
+step_idle_plotting = 255
+step_idle_cool = 25
+laser_mode = 0
+soft_reset_on_connect = true
+home_on_connect = false

@@ -1,0 +1,35 @@
+; grbl-pen-plotter — jingan
+; source: examples/square.svg
+; generated: 2026-10-09 21:43 UTC
+; work bbox: X5.00..75.00 Y5.00..75.00
+; path ≈ 368 mm
+; pen: M3 S1000 + G0 Z15.0 down; G0 Z0.0 + M5 up
+; set $1=255 while plotting; cool with $1=25
+; keep $32=0 (laser mode OFF for pens)
+G21
+G90
+G94
+M5
+G0 Z0.000
+G0 X5.000 Y75.000 F2500
+M3 S1000
+G0 Z15.000 F800
+G1 X75.000 Y75.000 F800
+G1 X75.000 Y5.000 F800
+G1 X5.000 Y5.000 F800
+G1 X5.000 Y75.000 F800
+G0 Z0.000 F800
+M5
+G0 X16.667 Y40.000 F2500
+M3 S1000
+G0 Z15.000 F800
+G1 X32.222 Y55.556 F800
+G1 X47.778 Y40.000 F800
+G1 X32.222 Y24.444 F800
+G1 X16.667 Y40.000 F800
+G0 Z0.000 F800
+M5
+M5
+G0 Z0.000
+G0 X0 Y0 F2500
+S0
