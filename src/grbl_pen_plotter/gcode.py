@@ -77,7 +77,10 @@ def emit_strokes(
         lines.append(pen.spindle_off)
     lines.append(pen.spindle_off)
     lines.append(f"G0 Z{pen.z_up:.3f}")
-    lines.append(f"G0 X0 Y0 F{feeds.rapid:.0f}")
+    # Park inside soft-limit margin (not literal 0,0 — that fails bounds checks)
+    park_x = profile.limits.x_min + profile.limits.margin
+    park_y = profile.limits.y_min + profile.limits.margin
+    lines.append(f"G0 X{park_x:.3f} Y{park_y:.3f} F{feeds.rapid:.0f}")
     lines.append("S0")
     return "\n".join(lines) + "\n", report
 
